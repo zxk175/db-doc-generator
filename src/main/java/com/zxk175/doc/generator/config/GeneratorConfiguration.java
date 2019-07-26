@@ -4,7 +4,7 @@ import com.zxk175.doc.generator.dao.DbInfoDao;
 import com.zxk175.doc.generator.enums.DbType;
 import com.zxk175.doc.generator.enums.TargetFileType;
 import com.zxk175.doc.generator.service.GeneratorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,10 +15,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author wwy
  */
 @Configuration
+@AllArgsConstructor
 public class GeneratorConfiguration {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
 
     @Bean
     public DbInfoDao dbInfoDao() throws InstantiationException, IllegalAccessException {

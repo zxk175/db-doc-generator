@@ -17,14 +17,12 @@ import java.util.*;
  */
 public final class HtmlGeneratorServiceImpl extends AbstractGeneratorServiceImpl {
 
-    private String templateFileName = "htmlTemplate.html";
-
-
     @Override
     public void generateDbDoc() throws Exception {
         String dataBaseName = dbInfoDao.dataBaseName();
         List<TableInfo> tableInfoList = dbInfoDao.tableInfoList();
         // 获取模板
+        String templateFileName = "htmlTemplate.html";
         Template template = FreeMarkerUtils.getTemplate(templateFileName);
         File dir = new File(targetFileDir);
         FileUtils.forceMkdir(dir);
@@ -34,7 +32,10 @@ public final class HtmlGeneratorServiceImpl extends AbstractGeneratorServiceImpl
         Map<String, Object> map = new HashMap<>(2);
         map.put("tableInfoList", tableInfoList);
         map.put("dataBaseName", dataBaseName);
+        
         // 根据模板生成文件
-        template.process(map, new FileWriter(file));
+        if (template != null) {
+            template.process(map, new FileWriter(file));
+        }
     }
 }

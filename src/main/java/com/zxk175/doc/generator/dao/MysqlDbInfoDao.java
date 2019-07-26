@@ -22,9 +22,6 @@ import java.util.Map;
  */
 public final class MysqlDbInfoDao extends AbstractDbInfoDao {
 
-    private JdbcTemplate jdbcTemplate;
-
-
     @Override
     public String dataBaseName() {
         return jdbcTemplate.queryForObject("select database()", String.class);
@@ -37,7 +34,7 @@ public final class MysqlDbInfoDao extends AbstractDbInfoDao {
 
         String columnsSql = "select COLUMN_NAME, COLUMN_COMMENT,COLUMN_DEFAULT,IS_NULLABLE,COLUMN_TYPE,COLUMN_KEY,EXTRA from information_schema.columns where table_schema = database() and table_name = ?";
         String keysSql = "show keys from ";
-        tableInfoList.stream().forEach((tableInfo) -> {
+        tableInfoList.forEach((tableInfo) -> {
             Object[] params = new Object[]{tableInfo.getTableName()};
             List<TableFieldInfo> fields = jdbcTemplate.query(columnsSql, params, new TableFieldInfoRowMapper());
 
@@ -56,7 +53,7 @@ public final class MysqlDbInfoDao extends AbstractDbInfoDao {
                     tableKeyInfo.setIndexComment(rawKeyInfo.get("Index_comment").toString());
                     tableKeyInfo.setIndexType(rawKeyInfo.get("Index_type").toString());
                     tableKeyInfo.setName(rawKeyInfo.get("Key_name").toString());
-                    tableKeyInfo.setUnique(rawKeyInfo.get("Non_unique").toString().equals("0"));
+                    tableKeyInfo.setUnique("0".equals(rawKeyInfo.get("Non_unique").toString()));
                 } else {
                     tableKeyInfo.getColumns().add(columnName);
                 }

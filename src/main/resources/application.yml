@@ -2,5 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 'M*EAs4d&5ojlk2B#*'
-    url: jdbc:mysql://localhost:3306/sd_data?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&autoReconnectForPools=true&failOverReadOnly=false&characterEncoding=utf8&characterSetResults=utf8
+    password: '123456'
+    url: jdbc:mysql://132.232.125.247:23306/alk_cpsp_190628?useUnicode=true&serverTimezone=Asia/Shanghai&autoReconnect=true
+  freemarker:
+    suffix: .html

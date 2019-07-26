@@ -12,21 +12,21 @@ public interface GeneratorService {
     /**
      * 生成数据库文档
      *
-     * @throws Exception
+     * @throws Exception ignore
      */
     void generateDbDoc() throws Exception;
 
     /**
      * 设置数据库信息Dao
      *
-     * @param dbInfoDao
+     * @param dbInfoDao ignore
      */
-     void setDbInfoDao(DbInfoDao dbInfoDao);
+    void setDbInfoDao(DbInfoDao dbInfoDao);
 
     /**
      * 设置目标目录
      *
-     * @param targetFileDir
+     * @param targetFileDir ignore
      */
-     void setTargetFileDir(String targetFileDir);
+    void setTargetFileDir(String targetFileDir);
 }

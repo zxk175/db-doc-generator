@@ -16,21 +16,21 @@ public interface DbInfoDao {
     /**
      * 获取数据库名称
      *
-     * @return
+     * @return ignore
      */
     String dataBaseName();
 
     /**
      * 获取表的信息
      *
-     * @return
+     * @return ignore
      */
     List<TableInfo> tableInfoList();
 
     /**
      * 设置jdbcTemplate
      *
-     * @param jdbcTemplate
+     * @param jdbcTemplate ignore
      */
     void setJdbcTemplate(JdbcTemplate jdbcTemplate);
 }

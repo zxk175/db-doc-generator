@@ -1,6 +1,5 @@
 package com.zxk175.doc.generator.enums;
 
-import com.zxk175.doc.generator.service.impl.ExcelGeneratorServiceImpl;
 import com.zxk175.doc.generator.service.impl.HtmlGeneratorServiceImpl;
 
 /**
@@ -10,10 +9,6 @@ import com.zxk175.doc.generator.service.impl.HtmlGeneratorServiceImpl;
  */
 public enum TargetFileType {
 
-    /**
-     * excel文档
-     */
-    EXCEL(ExcelGeneratorServiceImpl.class),
     /**
      * html文档
      */

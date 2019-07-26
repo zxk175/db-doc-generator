@@ -10,8 +10,8 @@ import com.zxk175.doc.generator.service.GeneratorService;
  */
 public abstract class AbstractGeneratorServiceImpl implements GeneratorService {
 
-    protected DbInfoDao dbInfoDao;
-    protected String targetFileDir;
+    DbInfoDao dbInfoDao;
+    String targetFileDir;
 
 
     @Override
